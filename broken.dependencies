@@ -1,0 +1,20 @@
+[
+  {
+    "remote":      "github",
+    "repository":  "boulzordev/proprietary_vendor_motorola_athene",
+    "target_path": "vendor/motorola",
+    "branch":      "cm-13.0-ims"
+  },
+  {
+    "remote":      "github",
+    "repository":  "boulzordev/android_kernel_motorola_msm8952",
+    "target_path": "kernel/motorola/msm8952",
+    "branch":      "cm-13.0"
+  },
+  {
+    "remote":      "github",
+    "repository":  "Cyanogenmod/android_external_stlport",
+    "target_path": "external/stlport",
+    "branch":      "cm-13.0"
+  }
+]
