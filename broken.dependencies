@@ -1,14 +1,20 @@
 [
   {
     "remote":      "github",
-    "repository":  "boulzordev/proprietary_vendor_motorola_athene",
+    "repository":  "TheMuppets/proprietary_vendor_motorola",
     "target_path": "vendor/motorola",
-    "branch":      "cm-13.0-ims"
+    "branch":      "cm-13.0"
   },
   {
     "remote":      "github",
-    "repository":  "boulzordev/android_kernel_motorola_msm8952",
-    "target_path": "kernel/motorola/msm8952",
+    "repository": "CyanogenMod/android_external_bson",
+    "target_path": "external/bson"
+    "branch":      "cm-13.0"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_kernel_motorola_msm8952",
+    "target_path": "kernel/motorola/msm8952"
     "branch":      "cm-13.0"
   },
   {
