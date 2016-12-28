@@ -8,7 +8,7 @@
   {
     "remote":      "github",
     "repository":  "LightningZap/kernel_motorola_msm8952-lz",
-    "target_path": "kernel/motorola/athene"
+    "target_path": "kernel/motorola/msm8952-lz"
     "branch":      "n7.1"
   },
   {
