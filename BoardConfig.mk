@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/motorola/athene
+LOCAL_PATH := device/moto/athene
 
 BOARD_VENDOR := motorola-qcom
 
@@ -134,7 +134,7 @@ ENABLE_CPUSETS := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Properties
-TARGET_SYSTEM_PROP += device/motorola/athene/system.prop
+TARGET_SYSTEM_PROP += device/moto/athene/system.prop
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
