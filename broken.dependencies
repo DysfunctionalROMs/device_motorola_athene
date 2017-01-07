@@ -8,13 +8,13 @@
   {
     "remote":      "github",
     "repository":  "LightningZap/kernel_motorola_msm8952-lz",
-    "target_path": "kernel/motorola/msm8952"
+    "target_path": "kernel/motorola/msm8952-lz",
     "branch":      "m6.0.1"
   },
   {
     "remote":      "github",
     "repository": "CyanogenMod/android_external_bson",
-    "target_path": "external/bson"
+    "target_path": "external/bson",
     "branch":      "cm-13.0"
   },
   {
