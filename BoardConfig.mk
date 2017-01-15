@@ -52,10 +52,10 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_CUSTOM_DTBTOOL := dtbTool_moto
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := athene_defconfig
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8952
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+TARGET_KERNEL_CONFIG := athene-lz_defconfig
+TARGET_KERNEL_SOURCE := kernel/motorola/msm8952-lz
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-cortex_a15-linux-gnueabihf-linaro_4.9/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-cortex_a15-linux-gnueabihf-
 
 # Audio
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
