@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+#           (C) 2017 The BrokenOs Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -161,10 +162,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8952
 
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
+
 # OEM
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/vhw.xml:system/etc/vhw.xml
-	 
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \

@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+#           (C) 2017 The BrokenOs Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -87,7 +88,6 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
-TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 USE_OPENGL_RENDERER := true
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
