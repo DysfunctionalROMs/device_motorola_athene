@@ -16,7 +16,7 @@
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/broken/config/common_full_phone.mk)
 
-$(call inherit-product, device/moto/athene/full_athene.mk)
+$(call inherit-product, device/motorola/athene/full_athene.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
