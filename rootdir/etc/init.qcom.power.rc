@@ -7,12 +7,12 @@ on boot
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
     # update foreground cpuset now that processors are up
-    # reserve CPU 7 for the top app
-    write /dev/cpuset/foreground/cpus 0-6
+    # reserve CPU 4 for the top app
+    write /dev/cpuset/foreground/cpus 0-3,5-7
     write /dev/cpuset/foreground/boost/cpus 0-3
-    write /dev/cpuset/background/cpus 4-6
-    write /dev/cpuset/system-background/cpus 4-6
-    write /dev/cpuset/top-app/cpus 7
+    write /dev/cpuset/background/cpus 4
+    write /dev/cpuset/system-background/cpus 5-7
+    write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/camera-daemon/cpus 4-7
 
     # Enable sched boost
@@ -60,7 +60,7 @@ on enable-low-power
     write /sys/class/devfreq/qcom,gpubw.38/governor "bw_hwmon"
     write /sys/class/devfreq/qcom,gpubw.38/bw_hwmon/io_percent 40
 
-    # disable thermal & BCL core_control to update Lionheart gov settings
+    # disable thermal & BCL core_control to update interactive gov settings
     write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/soc.0/qcom,bcl.57/mode "disable"
     write /sys/devices/soc.0/qcom,bcl.57/hotplug_mask 0
@@ -69,14 +69,29 @@ on enable-low-power
 
     # enable governor for perf cluster
     write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "Lionheart"
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/down_threshold 30
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/freq_step 5
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/ignore_nice_load 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/sampling_down_factor 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/sampling_rate 100
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/sampling_rate_min 100
-    write /sys/devices/system/cpu/cpu0/cpufreq/Lionheart/up_threshold 65
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay "19000 1094400:39000"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 85
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 50000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1094400
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "1 960000:85 1094400:90 1344000:80"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 960000
+
+    # enable governor for power cluster
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 39000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 50000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 806400
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "1 806400:90"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 806400
 
     # enable thermal & BCL core_control now
     write /sys/module/msm_thermal/core_control/enabled 1
@@ -102,6 +117,10 @@ on enable-low-power
     write /proc/sys/kernel/sched_downmigrate 83
 
     # Enable sched guided freq control
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
     write /proc/sys/kernel/sched_freq_inc_notify 50000
     write /proc/sys/kernel/sched_freq_dec_notify 50000
 
@@ -138,6 +157,9 @@ on enable-low-power
 
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+
+    # Set idle GPU to 240 Mhz
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
 
     # Set perfd properties
     rm /data/system/perfd/default_values

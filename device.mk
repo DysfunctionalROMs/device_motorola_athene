@@ -241,6 +241,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-athene.conf:system/etc/thermal-engine-athene.conf
 
+# ADB
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+persist.service.adb.enable=1 \
+persist.service.debuggable=1 \
+persist.sys.usb.config=mtp,adb
+
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
