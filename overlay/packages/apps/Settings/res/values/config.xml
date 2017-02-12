@@ -24,4 +24,10 @@
        3 = right side
   -->
   <integer name="config_fingerprintSensorLocation">1</integer>
+
+  <!-- Does the device support CMActions?
+       Decides if CMActions shows in the Gestures menu
+       Note: Disabled by default, set it to true in your device
+       overlay if support is given -->
+  <bool name="config_isCmActionsSupported">true</bool>
 </resources>
