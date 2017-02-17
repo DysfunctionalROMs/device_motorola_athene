@@ -22,5 +22,17 @@
     "repository":  "Cyanogenmod/android_external_stlport",
     "target_path": "external/stlport",
     "branch":      "cm-14.1"
+  },
+  {
+    "remote":      "github",
+    "repository": "Cyanogenmod/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch":      "cm-14.1"
+  },
+  {
+    "remote":      "github",
+    "repository": "scotthartbti/vendor_cmsdk",
+    "target_path": "vendor/cmsdk",
+    "branch":      "bs7.1"
   }
 ]
