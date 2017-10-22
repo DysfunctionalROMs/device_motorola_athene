@@ -71,11 +71,7 @@ dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 debug.enable.sglscale=1
 ro.opengles.version=196610
-persist.hwc.enable_vds=1
 ro.sf.lcd_density=480
-persist.hwc.ptor.enable=true
-persist.mdpcomp_perfhint=50
-persist.metadata_dynfps.disable=true
 
 # Data
 ro.use_data_netmgrd=true
@@ -101,6 +97,7 @@ audio.offload.multiple.enabled=false
 audio.offload.pcm.16bit.enable=false
 audio.offload.pcm.24bit.enable=false
 audio.offload.video=false
+ro.audio.offload_wakelock=false
 persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
 persist.audio.calfile1=/etc/acdbdata/General_cal.acdb
 persist.audio.calfile2=/etc/acdbdata/Global_cal.acdb
@@ -128,7 +125,7 @@ audio.offload.track.enable=true
 audio.deep_buffer.media=true
 audio.pp.asphere.enabled=false
 audio.safx.pbe.enabled=true
-qcom.hw.aac.encoder=true
+qcom.hw.aac.encoder=false
 audio.parser.ip.buffer.size=262144
 audio_hal.period_size=240
 persist.audio.endcall.delay=250
@@ -154,6 +151,12 @@ persist.cne.logging.qxdm=0
 # HWUI
 ro.hwui.texture_cache_size=40
 
+# set max background services
+ro.config.max_starting_bg=8
+
+#Enable B service adj transition by default
+ro.sys.fw.bservice_enable=true
+
 # Media
 mm.enable.smoothstreaming=false
 mm.enable.sec.smoothstreaming=false
@@ -176,7 +179,7 @@ av.offload.enable=false
 use.voice.path.for.pcm.voip=false
 media.msm8956.version=0
 media.msm8956hw=0
-mm.enable.qcom_parser=4643
+mm.enable.qcom_parser=135715
 vidc.enc.dcvs.extra-buff-count=2
 vidc.enc.narrow.searchrange=1
 media.camera.ts.monotonic=1
@@ -260,7 +263,4 @@ ro.mot.build.version.sdk_int=24
 ro.mot.build.product.increment=24
 ro.mot.build.version.release=24.24
 ro.mot.ignore_csim_appid=true
-ro.config.alarm_alert=Oxygen.ogg
-ro.config.ringtone=Moto.ogg
-ro.config.notification_sound=Moto.ogg
 ro.cutoff_voltage_mv=3200

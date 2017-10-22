@@ -222,7 +222,7 @@
     <!-- Is the device capable of hot swapping an UICC Card -->
     <bool name="config_hotswapCapable">true</bool>
 
-    <!-- Is the Battery LED intrusive? Used to decide if there should be a disable option
+    <!-- Is the Battery LED intrusive? Used to decide if there shodevice/motorola/athene/overlay/frameworks/base/core/res/res/values/config.xml:348uld be a disable option
     <bool name="config_intrusiveBatteryLed">true</bool> -->
 
     <!-- Is the Notification LED intrusive? Used to decide if there should be a disable option -->
